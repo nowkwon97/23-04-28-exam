@@ -2,13 +2,6 @@ import inquirer from 'inquirer';
 import { program } from 'commander';
 import fs from 'fs';
 
-// HTML 파일을 만드는 명령어
-program
-  .version('1.0.0')
-  .description('HTML 파일 생성')
-  // 터미널에서 입력한 명령어와 옵션을 파싱하고 해당 동작을 수행한다.
-  .parse(process.argv);
-
 // 사용자에게서 데이터를 받아오는 CLI
 inquirer
   // 질문들을 정의하는 배열
