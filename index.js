@@ -1,11 +1,14 @@
 import inquirer from 'inquirer';
 import { program } from 'commander';
 
+// HTML 파일을 만드는 명령어
 program
   .version('1.0.0')
   .description('HTML 파일 생성')
+  // 터미널에서 입력한 명령어와 옵션을 파싱하고 해당 동작을 수행한다.
   .parse(process.argv);
 
+// 사용자에게서 데이터를 받아오는 CLI
 inquirer
   // 질문들을 정의하는 배열
   .prompt([
@@ -16,8 +19,9 @@ inquirer
     },
     {
       type: 'confirm',
-      name: 'div root use or not',
+      name: 'root',
       message: '최상위 div #root 태그 사용하시겠습니까?',
+      default: true,
     },
     {
       type: 'input',
@@ -31,6 +35,20 @@ inquirer
     // 사용자가 입력한 답변들을 처리하는 코드
     console.log('Answers:', answers)
 
+    const { title, root, pTag } = answers;
+
+    const html = `<!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+    </head>
+    <body>
+      
+    </body>
+    </html>`
   })
   .catch((error)=> {
     // 오류 처리 코드
