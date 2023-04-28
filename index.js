@@ -7,6 +7,11 @@ inquirer
   // 질문들을 정의하는 배열
   .prompt([
     {
+      type: 'input',
+      name: 'filename',
+      message: 'html파일의 이름은 무엇으로 하시겠습니까?'
+    },
+    {
       type: 'input', // 질문의 종류
       name: 'title', // 답변을 저장할 속성 이름
       message: 'html의 title을 무엇으로 하시겠습니까?', // 사용자에게 보여줄 메시지
@@ -29,7 +34,7 @@ inquirer
     // 사용자가 입력한 답변들을 처리하는 코드
     console.log('Answers:', answers)
 
-    const { title, isRoot, pTag } = answers;
+    const { filename, title, isRoot, pTag } = answers;
     // HTML문자 덩어리를 갖고 있는 html 변수를 HTML 파일로 만들어주는 작업과 경로를 /result로 해주는 작업을 해보자.
     // => fs를 이용해보자.
     const html = `<!DOCTYPE html>
@@ -47,7 +52,7 @@ inquirer
     </body>
     </html>`
 
-    fs.writeFile('result/index.html', html, (err) => {
+    fs.writeFile(`result/${filename}.html`, html, (err) => {
       if (err) throw err;
       console.log('HTML 파일이 생성되었습니다.');
     });
