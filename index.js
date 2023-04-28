@@ -1,5 +1,6 @@
 import inquirer from 'inquirer';
 import { program } from 'commander';
+import fs from 'fs';
 
 // HTML 파일을 만드는 명령어
 program
@@ -36,7 +37,8 @@ inquirer
     console.log('Answers:', answers)
 
     const { title, isRoot, pTag } = answers;
-
+    // HTML문자 덩어리를 갖고 있는 html 변수를 HTML 파일로 만들어주는 작업과 경로를 /result로 해주는 작업을 해보자.
+    // => fs를 이용해보자.
     const html = `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -51,6 +53,12 @@ inquirer
       </div>
     </body>
     </html>`
+
+    fs.writeFile('result/index.html', html, (err) => {
+      if (err) throw err;
+      console.log('HTML 파일이 생성되었습니다.');
+    });
+    
   })
   .catch((error)=> {
     // 오류 처리 코드
