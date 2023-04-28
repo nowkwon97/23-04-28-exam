@@ -1,0 +1,24 @@
+{
+  "name": "23-04-28-exam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nowkwon97/23-04-28-exam.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nowkwon97/23-04-28-exam/issues"
+  },
+  "homepage": "https://github.com/nowkwon97/23-04-28-exam#readme",
+  "dependencies": {
+    "commander": "^10.0.1",
+    "inquirer": "^9.2.0"
+  }
+}
