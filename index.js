@@ -19,7 +19,7 @@ inquirer
     },
     {
       type: 'confirm',
-      name: 'root',
+      name: 'isRoot',
       message: '최상위 div #root 태그 사용하시겠습니까?',
       default: true,
     },
@@ -35,7 +35,7 @@ inquirer
     // 사용자가 입력한 답변들을 처리하는 코드
     console.log('Answers:', answers)
 
-    const { title, root, pTag } = answers;
+    const { title, isRoot, pTag } = answers;
 
     const html = `<!DOCTYPE html>
     <html lang="en">
@@ -43,10 +43,12 @@ inquirer
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Document</title>
+      <title>${title}</title>
     </head>
     <body>
-      
+      ${isRoot ? '<div id="root">' : '<div>'}
+      <p>${pTag}</p>
+      </div>
     </body>
     </html>`
   })
