@@ -60,4 +60,5 @@ inquirer
   })
   .catch((error)=> {
     // 오류 처리 코드
+    if (err) throw err;
   });
