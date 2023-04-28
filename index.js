@@ -1,5 +1,5 @@
 import inquirer from 'inquirer';
-const { program } = require('commander');
+import { program } from 'commander';
 
 inquirer
   .prompt([
@@ -10,11 +10,16 @@ inquirer
       message: 'html의 title을 무엇으로 하시겠습니까?', // 사용자에게 보여줄 메시지
     },
     {
-      type: 'input',
+      type: 'list',
       name: 'div root use or not',
       message: '최상위 div #root 태그 사용하시겠습니까?',
       choices: ['yes', 'no'],
-    }
+    },
+    {
+      type: 'input',
+      name: 'pTag',
+      message: '본문<p> 태그 내용작성을 해주세요.'
+    },
   ])
   .then((answers) => {
     // 사용자가 입력한 답변들을 처리하는 코드
